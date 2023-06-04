@@ -47,7 +47,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "styles": ["src/styles.css"],
-            "assets": ["src/assets", "src/favicon.ico"],
+            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"],
             "scripts": []
           },
           "configurations": {
