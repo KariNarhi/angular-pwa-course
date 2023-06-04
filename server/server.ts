@@ -1,7 +1,7 @@
 import * as express from "express";
 import { Application } from "express";
 import { readAllLessons } from "./read-all-lessons.route";
-const bodyParser = require("body-parser");
+import * as bodyParser from "body-parser";
 
 const app: Application = express();
 
@@ -11,8 +11,6 @@ app.use(bodyParser.json());
 app.route("/api/lessons").get(readAllLessons);
 
 // launch an HTTP Server
-const httpServer: any = app.listen(9000, () => {
-  console.log(
-    "HTTP Server running at http://localhost:" + httpServer.address().port
-  );
+app.listen(9000, () => {
+  console.log("HTTP Server running at http://localhost:9000");
 });
