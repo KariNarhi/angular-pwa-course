@@ -7,7 +7,17 @@ import { SwPush, SwUpdate } from "@angular/service-worker";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  constructor(private swUpdate: SwUpdate) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.versionUpdates.subscribe((versionEvent) => {
+        if (versionEvent.type == "VERSION_READY") {
+          if (confirm("New version available. Load New Version?")) {
+            window.location.reload();
+          }
+        }
+      });
+    }
+  }
 }

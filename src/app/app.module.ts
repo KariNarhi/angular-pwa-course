@@ -22,6 +22,9 @@ import { AppRoutingModule } from "./app-routing.module";
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    ServiceWorkerModule.register("/ngsw-worker.js", {
+      enabled: environment.production,
+    }),
   ],
   providers: [LessonsService],
   bootstrap: [AppComponent],
