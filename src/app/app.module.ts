@@ -13,7 +13,8 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
-import { RouterModule } from '@angular/router';
+import { RouterModule } from "@angular/router";
+import { NewsletterService } from "./services/newsletter.service";
 
 @NgModule({
   declarations: [AppComponent, LessonsComponent],
@@ -28,7 +29,7 @@ import { RouterModule } from '@angular/router';
     }),
     RouterModule,
   ],
-  providers: [LessonsService],
+  providers: [LessonsService, NewsletterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

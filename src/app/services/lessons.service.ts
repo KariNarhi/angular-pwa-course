@@ -1,28 +1,23 @@
-
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Lesson} from "../model/lesson";
-import {Observable} from "rxjs";
-import {map} from 'rxjs/operators';
-
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Lesson } from "../model/lesson";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class LessonsService {
+  constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient) {
+  loadAllLessons(): Observable<Lesson[]> {
+    return this.http.get<{ lessons: Lesson[] }>("/api/lessons").pipe(
+      map((res) => {
+        /*   console.log(res); */
+        return res.lessons;
+      })
+    );
+  }
 
-    }
-
-    loadAllLessons() : Observable<Lesson[]> {
-        return this.http.get<any>('/api/lessons')
-          .pipe(
-            map(res => res.lessons)
-          )
-    }
-
-    findLessonById(id:number) {
-        return this.http.get<Lesson>('/api/lessons/' + id);
-    }
-
+  findLessonById(id: number) {
+    return this.http.get<Lesson>("/api/lessons/" + id);
+  }
 }
-
