@@ -4,7 +4,7 @@
   "name": "Angular PWA Course",
   "scope": "/",
   "display": "fullscreen",
-  "start_url": "http://localhost:8080/",
+  "start_url": "localhost",
   "short_name": "Angular PWA Course",
   "theme_color": "transparent",
   "description": "Learn and Keep Up With The Angular Ecosystem",

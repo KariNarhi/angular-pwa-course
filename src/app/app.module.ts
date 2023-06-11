@@ -25,7 +25,7 @@ import { NewsletterService } from "./services/newsletter.service";
     AppRoutingModule,
     ReactiveFormsModule,
     ServiceWorkerModule.register("/ngsw-worker.js", {
-      enabled: environment.production,
+      enabled: !environment.production,
     }),
     RouterModule,
   ],
